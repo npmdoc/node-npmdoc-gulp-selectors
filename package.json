@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "api documentation for [gulp-selectors (v0.1.9)](https://github.com/calebthebrewer/gulp-selectors) [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-selectors.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-selectors) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-selectors.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-selectors)",
+    "description": "#### basic api documentation for  [gulp-selectors (v0.1.9)](https://github.com/calebthebrewer/gulp-selectors)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-selectors.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-selectors) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-selectors.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-selectors)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "gulp-selectors": "*",

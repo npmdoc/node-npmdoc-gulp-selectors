@@ -1,4 +1,7 @@
-# api documentation for  [gulp-selectors (v0.1.9)](https://github.com/calebthebrewer/gulp-selectors)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-selectors.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-selectors) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-selectors.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-selectors)
+# npmdoc-gulp-selectors
+
+#### basic api documentation for  [gulp-selectors (v0.1.9)](https://github.com/calebthebrewer/gulp-selectors)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-selectors.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-selectors) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-selectors.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-selectors)
+
 #### Minify CSS selectors.
 
 [![NPM](https://nodei.co/npm/gulp-selectors.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gulp-selectors)
@@ -74,7 +77,8 @@
         "test": "vows --spec",
         "test-report": "npm run coverage && npm run codeclimate"
     },
-    "version": "0.1.9"
+    "version": "0.1.9",
+    "bin": {}
 }
 ```
 
