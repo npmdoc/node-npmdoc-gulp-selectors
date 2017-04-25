@@ -81,28 +81,85 @@
 
         </li>
 
-    </ol></li>
+        <li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-selectors.info">module gulp-selectors.info</a><ol>
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.</span>expressions</span>
+
+        </li>
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.gulp-selectors.info.info">
-            function <span class="apidocSignatureSpan">gulp-selectors.</span>info
-            <span class="apidocSignatureSpan">()</span>
-            </a>
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.</span>processor_utils</span>
 
         </li>
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-selectors.run">module gulp-selectors.run</a><ol>
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-selectors.expressions">module gulp-selectors.expressions</a><ol>
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.gulp-selectors.run.run">
-            function <span class="apidocSignatureSpan">gulp-selectors.</span>run
-            <span class="apidocSignatureSpan">(processors, ignores)</span>
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-selectors.expressions.jsString">
+            function <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>jsString
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>classList</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>classSelector</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>elementAttribute</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>idList</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>idSelector</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>selectorName</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-selectors.processor_utils">module gulp-selectors.processor_utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-selectors.processor_utils.extendDefaults">
+            function <span class="apidocSignatureSpan">gulp-selectors.processor_utils.</span>extendDefaults
+            <span class="apidocSignatureSpan">(processors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-selectors.processor_utils.getForExtension">
+            function <span class="apidocSignatureSpan">gulp-selectors.processor_utils.</span>getForExtension
+            <span class="apidocSignatureSpan">(processors, extension)</span>
             </a>
 
         </li>
@@ -237,91 +294,145 @@ You can also pass some options into run:
     </ul>
 
 
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.gulp-selectors.info" id="apidoc.module.gulp-selectors.info">module gulp-selectors.info</a></h1>
+<h1><a href="#apidoc.module.gulp-selectors.expressions" id="apidoc.module.gulp-selectors.expressions">module gulp-selectors.expressions</a></h1>
 
 
     <h2>
-        <a href="#apidoc.element.gulp-selectors.info.info" id="apidoc.element.gulp-selectors.info.info">
-        function <span class="apidocSignatureSpan">gulp-selectors.</span>info
-        <span class="apidocSignatureSpan">()</span>
+        <a href="#apidoc.element.gulp-selectors.expressions.jsString" id="apidoc.element.gulp-selectors.expressions.jsString">
+        function <span class="apidocSignatureSpan">gulp-selectors.expressions.</span>jsString
+        <span class="apidocSignatureSpan">(name)</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">function info() {
-	return es.map(function(file, callback) {
-		utils.log(file.history[0]);
-		utils.log('Class library:', classLibrary.stats());
-		utils.log('ID library:', idLibrary.stats());
-		callback(null, file);
+    <li>description and source-code<pre class="apidocCodePre">jsString = function (name) {
+		return new RegExp('[\'|"]' + name + '[\'|"]', 'g');
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @param file String
+ * @returns {reducedFile String}
+ */
+module.exports = function(file, classLibrary, idLibrary) {
+
+	classLibrary.getFullNames().forEach(function(selector) {
+		file = file.replace(expressions.<span class="apidocCodeKeywordSpan">jsString</span>(selector), function() {
+			return "'" + classLibrary.get(selector) + "'";
+		});
 	});
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+
+	idLibrary.getFullNames().forEach(function(selector) {
+		file = file.replace(expressions.jsString(selector), function() {
+			return "'" + idLibrary.get(selector) + "'";
+...</pre></li>
     </ul>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.gulp-selectors.run" id="apidoc.module.gulp-selectors.run">module gulp-selectors.run</a></h1>
+<h1><a href="#apidoc.module.gulp-selectors.processor_utils" id="apidoc.module.gulp-selectors.processor_utils">module gulp-selectors.processor_utils</a></h1>
 
 
     <h2>
-        <a href="#apidoc.element.gulp-selectors.run.run" id="apidoc.element.gulp-selectors.run.run">
-        function <span class="apidocSignatureSpan">gulp-selectors.</span>run
-        <span class="apidocSignatureSpan">(processors, ignores)</span>
+        <a href="#apidoc.element.gulp-selectors.processor_utils.extendDefaults" id="apidoc.element.gulp-selectors.processor_utils.extendDefaults">
+        function <span class="apidocSignatureSpan">gulp-selectors.processor_utils.</span>extendDefaults
+        <span class="apidocSignatureSpan">(processors)</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">function run(processors, ignores) {
+    <li>description and source-code<pre class="apidocCodePre">function extendDefaults(processors) {
+
+	processors = _.extend({
+		css: ['css'],
+		html: ['html']
+	}, processors);
+
+	return processors;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+function run(processors, ignores) {
 	//initialize ignores
 	ignores = _.extend({classes: [], ids: []}, ignores);
 
 	//ensure processor names are set as expected
-	processors = processorUtils.extendDefaults(processors);
+	processors = processorUtils.<span class="apidocCodeKeywordSpan">extendDefaults</span>(processors);
 
 	//build new libraries to use
 	classLibrary = new Library(ignores.classes || []);
 	idLibrary = new Library(ignores.ids || []);
 
-	<span class="apidocCodeCommentSpan">/**
+	/**
 	 * Main task for mini selectors uglify classes. Processes files based on type.
-	 *
-	 * @param file Stream from es.map
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-selectors.processor_utils.getForExtension" id="apidoc.element.gulp-selectors.processor_utils.getForExtension">
+        function <span class="apidocSignatureSpan">gulp-selectors.processor_utils.</span>getForExtension
+        <span class="apidocSignatureSpan">(processors, extension)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getProcessorsForExtension(processors, extension) {
+	var selectedProcessors = [];
+
+	for (var processor in processors) {
+		if (typeof processors[processor] === 'object' &amp;&amp;
+			processors[processor].indexOf(extension) &gt; -1) {
+			switch (processor) {
+				//these guys are special since they're built in
+				case 'css':
+				case 'html':
+				case 'js-strings':
+				case 'remove-unused':
+					selectedProcessors.push(require('../processors/' + processor));
+					break;
+				default:
+					selectedProcessors.push(require(processor));
+			}
+		}
+	}
+
+	return selectedProcessors;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
 	 * @param callback for es.map
 	 */
-</span>	function miniSelectors(file, callback) {
+	function miniSelectors(file, callback) {
 		var extensions = file.path.split('.'),
 			extension = extensions[extensions.length - 1],
 			reducedFile = String(file.contents);
 
-		processorUtils.getForExtension(processors, extension).forEach(function(processor) {
+		processorUtils.<span class="apidocCodeKeywordSpan">getForExtension</span>(processors, extension).forEach(function(processor) {
 			reducedFile = processor(reducedFile, classLibrary, idLibrary);
 		});
 
 		file.contents = new Buffer(reducedFile);
 		callback(null, file);
 	}
-
-	return es.map(miniSelectors);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-`npm install gulp-selectors`
-
-```js
-var gulp	= require('gulp');
-var gs		= require('gulp-selectors');
-
-gulp.src(['src/**/*.css', 'src/**/*.html'])
-    .pipe(gs.<span class="apidocCodeKeywordSpan">run</span>())
-    .pipe(gulp.dest('dist'));
-```
-
-You can also pass some options into run:
-
-` gs.run(processors, ignores)`
 ...</pre></li>
     </ul>
 
